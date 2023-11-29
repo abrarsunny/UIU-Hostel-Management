@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane stylesheets="@../admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.Registration">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="188.0" layoutY="14.0" text="Student Registration" textFill="#faf9f9">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <TextField fx:id="name" layoutX="37.0" layoutY="75.0" prefHeight="26.0" prefWidth="224.0" promptText="Name" />
+            <TextField fx:id="id" layoutX="314.0" layoutY="75.0" prefHeight="26.0" prefWidth="224.0" promptText="ID" />
+            <TextField fx:id="email" layoutX="37.0" layoutY="127.0" prefHeight="26.0" prefWidth="224.0" promptText="Email" />
+            <Text fill="WHITE" layoutX="314.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender" />
+            <RadioButton layoutX="368.0" layoutY="132.0" mnemonicParsing="false" text="Male" textFill="#fcf7f7">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gender" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="426.0" layoutY="132.0" mnemonicParsing="false" text="Female" textFill="#ece7e7" toggleGroup="$gender" />
+            <TextField fx:id="mobile" layoutX="37.0" layoutY="181.0" prefHeight="26.0" prefWidth="224.0" promptText="Mobile Number" />
+            <RadioButton layoutX="385.0" layoutY="191.0" mnemonicParsing="false" text="Single Room" textFill="#f4f0f0">
+               <toggleGroup>
+                  <ToggleGroup fx:id="roomType" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="481.0" layoutY="191.0" mnemonicParsing="false" text="Shared Room" textFill="#fff6f6" toggleGroup="$roomType" />
+            <Text fill="WHITE" layoutX="314.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type" />
+            <RadioButton layoutX="386.0" layoutY="226.0" mnemonicParsing="false" text="AC" textFill="#f4efef">
+               <toggleGroup>
+                  <ToggleGroup fx:id="acCondition" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="481.0" layoutY="226.0" mnemonicParsing="false" text="Non-AC" textFill="#f7f4f4" toggleGroup="$acCondition" />
+            <Button layoutX="270.0" layoutY="294.0" mnemonicParsing="false" onAction="#register" text="Register" />
+            <Button layoutX="249.0" layoutY="335.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: transparent;" text="Back to login" />
+            <TextField fx:id="address" layoutX="37.0" layoutY="235.0" prefHeight="26.0" prefWidth="224.0" promptText="Address" />
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <ImageView fitHeight="402.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../image/Picsart_23-11-27_17-06-55-517.jpg" />
+         </image>
+      </ImageView>
+   </left>
+</BorderPane>

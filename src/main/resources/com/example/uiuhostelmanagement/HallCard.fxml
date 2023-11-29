@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="891.0" spacing="10.0" style="-fx-border-color: #f38908;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.HallCard">
+   <children>
+      <Label fx:id="name" alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" prefHeight="70.0" prefWidth="319.0" text="Name" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="gender" alignment="CENTER" layoutX="535.0" layoutY="10.0" prefHeight="70.0" prefWidth="246.0" text="Female" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="singleAC" alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" prefHeight="70.0" prefWidth="246.0" text="Single AC" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="singleNonAC" alignment="CENTER" contentDisplay="TOP" layoutX="300.0" layoutY="10.0" prefHeight="70.0" prefWidth="265.0" text="Single Non-AC" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="sharedAC" alignment="CENTER" prefHeight="70.0" prefWidth="276.0" text="Shared AC" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="sharedNonAC" alignment="CENTER" layoutX="639.0" layoutY="10.0" prefHeight="70.0" prefWidth="237.0" text="Shared Non-AC" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button onAction="#edit" prefHeight="61.0" prefWidth="222.0" style="-fx-background-color: #e7a313; -fx-background-radius: 20;" styleClass="btn" text="Edit" textFill="WHITE">
+         <HBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </HBox.margin>
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="TEXT_ONLY" layoutX="900.0" layoutY="15.0" onAction="#view" prefHeight="61.0" prefWidth="217.0" style="-fx-background-color: #48C8A7; -fx-background-radius: 20;" styleClass="btn" text="View" textFill="WHITE">
+         <HBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </HBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</HBox>

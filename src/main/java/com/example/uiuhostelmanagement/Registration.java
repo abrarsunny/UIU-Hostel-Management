@@ -1,0 +1,109 @@
+package com.example.uiuhostelmanagement;
+
+import com.example.uiuhostelmanagement.util.DatabaseConnection;
+import com.example.uiuhostelmanagement.util.FXMLScene;
+import com.example.uiuhostelmanagement.util.SendEmail;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.sql.*;
+import java.util.UUID;
+
+public class Registration {
+
+    @FXML
+    private ToggleGroup acCondition;
+
+    @FXML
+    private TextField email;
+
+    @FXML
+    private ToggleGroup gender;
+
+    @FXML
+    private TextField id;
+
+    @FXML
+    private TextField mobile;
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    private ToggleGroup roomType;
+    private String generatePassword()
+    {
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString().substring(0, 8);
+    }
+
+    @FXML
+    void register(ActionEvent event) throws Exception {
+
+        RadioButton seletedGender = (RadioButton) gender.getSelectedToggle();
+        String genderText = seletedGender.getText();
+
+        RadioButton seletedRoomType = (RadioButton) roomType.getSelectedToggle();
+        String roomTypeText = seletedRoomType.getText();
+
+        RadioButton seletedAC = (RadioButton) acCondition.getSelectedToggle();
+        String acText = seletedAC.getText();
+
+
+
+        DatabaseConnection databaseConnection = new DatabaseConnection();
+        String sql = "INSERT INTO students (id, name, email, mobile,gender,roomType,acOrNon) VALUES (?, ?, ?, ?,?,?,?)";
+        Connection connection = databaseConnection.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1,id.getText());
+        statement.setString(2,name.getText());
+        statement.setString(3,email.getText());
+        statement.setString(4,mobile.getText());
+        statement.setString(5,genderText);
+        statement.setString(6,roomTypeText);
+        statement.setString(7,acText);
+        int result = statement.executeUpdate();
+        String password = generatePassword();
+        SendEmail.sendMail(email.getText(),"UIU Hostel Account Credentials","Your Password : " + password);
+        if(result==1)
+        {
+            String userCreateSQL = "INSERT INTO users (userID, email, password, role) VALUES (?, ?, ?, ?)";
+            PreparedStatement statement2 = connection.prepareStatement(userCreateSQL);
+            statement2.setString(1,id.getText());
+            statement2.setString(2,email.getText());
+            statement2.setString(3,password);
+            statement2.setString(4,"student");
+            int result2 = statement2.executeUpdate();
+            if(result2==1)
+            {
+                FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/login.fxml");
+                Scene scene = new Scene(fxmlScene.getRoot());
+                Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            }
+            else
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR,"Failed To Create Account", ButtonType.OK);
+                alert.show();
+            }
+        }
+        else
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR,"Failed To Create Account", ButtonType.OK);
+            alert.show();
+        }
+    }
+
+    public void login(ActionEvent event) {
+        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/login.fxml");
+        Scene scene = new Scene(fxmlScene.getRoot());
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+}
