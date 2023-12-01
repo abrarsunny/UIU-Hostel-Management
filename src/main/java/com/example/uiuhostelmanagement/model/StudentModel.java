@@ -8,6 +8,20 @@ public class StudentModel {
     String gender;
     String roomType;
     String acOrNon;
+    String address;
+    String gNumber;
+
+    public StudentModel(String id, String name, String email, String mobile, String gender, String roomType, String acOrNon, String address, String gNumber) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.mobile = mobile;
+        this.gender = gender;
+        this.roomType = roomType;
+        this.acOrNon = acOrNon;
+        this.address = address;
+        this.gNumber = gNumber;
+    }
 
     public StudentModel(String id, String name, String email, String mobile, String gender, String roomType, String acOrNon) {
         this.id = id;
@@ -45,6 +59,22 @@ public class StudentModel {
 
     public String getMobile() {
         return mobile;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getgNumber() {
+        return gNumber;
+    }
+
+    public void setgNumber(String gNumber) {
+        this.gNumber = gNumber;
     }
 
     public void setMobile(String mobile) {

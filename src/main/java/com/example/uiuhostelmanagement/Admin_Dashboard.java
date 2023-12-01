@@ -150,8 +150,12 @@ public class Admin_Dashboard implements Initializable {
     }
 
     @FXML
-    void registerStudentButtonAction(ActionEvent event) {
-
+    void studentList(ActionEvent event) {
+        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/studentTable.fxml");
+        Scene scene = new Scene(fxmlScene.getRoot());
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

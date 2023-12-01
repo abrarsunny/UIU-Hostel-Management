@@ -1,6 +1,7 @@
 package com.example.uiuhostelmanagement;
 
-import com.example.uiuhostelmanagement.model.HallModel;
+import com.example.uiuhostelmanagement.model.AppointmentModel;
+import com.example.uiuhostelmanagement.model.StudentModel;
 import com.example.uiuhostelmanagement.util.DatabaseConnection;
 import com.example.uiuhostelmanagement.util.DatabaseReadCall;
 import com.example.uiuhostelmanagement.util.FXMLScene;
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
-public class Halls implements Initializable {
+public class StudentTable implements Initializable {
 
     @FXML
     private Button billSetupButton;
@@ -62,17 +63,12 @@ public class Halls implements Initializable {
     private Button settingsButton;
 
     @FXML
-    void addHall(ActionEvent event) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/addHall.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+    void billSetupButtonAction(ActionEvent event) {
 
     }
 
     @FXML
-    void billSetupButtonAction(ActionEvent event) {
+    void complains(ActionEvent event) {
 
     }
 
@@ -82,12 +78,36 @@ public class Halls implements Initializable {
     }
 
     @FXML
+    void dashboad(ActionEvent event) {
+        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/admin.fxml");
+        Scene scene = new Scene(fxmlScene.getRoot());
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    void halls(ActionEvent event) {
+        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/halls.fxml");
+        Scene scene = new Scene(fxmlScene.getRoot());
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     void logoutButtonAction(ActionEvent event) {
 
     }
 
     @FXML
     void newNoticeButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void notices(ActionEvent event) {
 
     }
 
@@ -103,11 +123,15 @@ public class Halls implements Initializable {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    void rooms(ActionEvent event) {
 
     }
 
     @FXML
-    void search(KeyEvent event) throws SQLException, ClassNotFoundException, IOException {
+    void search(KeyEvent event) {
         contrainer.getChildren().clear();
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setNode(contrainer);
@@ -115,27 +139,29 @@ public class Halls implements Initializable {
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
-        ArrayList<HallModel> halls = new ArrayList<>();
-        String searchSQL = "select * from halls where hallName LIKE ?";
+        ArrayList<StudentModel> students = new ArrayList<>();
+        String searchSQL = "SELECT * FROM students WHERE id LIKE ? OR name LIKE ?";
         HashMap<Integer,Object> searchHash = new HashMap<>();
         searchHash.put(1,"%"+((TextField)event.getSource()).getText()+"%");
+        searchHash.put(2,"%"+((TextField)event.getSource()).getText()+"%");
+
         DatabaseReadCall databaseReadCall = new DatabaseReadCall(searchSQL,searchHash);
         databaseReadCall.setOnSucceeded(workerStateEvent -> {
             try {
                 ResultSet resultSet = databaseReadCall.getValue();
 
                 while (resultSet.next()) {
-                    halls.add(new HallModel(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6),resultSet.getInt(7)));
+                    students.add(new StudentModel(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7),resultSet.getString(8),resultSet.getString(9)));
                 }
-                if (halls.size() > 0) {
+                if (students.size() > 0) {
 
-                    for (HallModel hall:halls) {
+                    for (StudentModel student:students) {
                         try {
                             FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(getClass().getResource("/com/example/uiuhostelmanagement/HallCard.fxml"));
+                            loader.setLocation(getClass().getResource("/com/example/uiuhostelmanagement/studentCard.fxml"));
                             Parent root = loader.load();
-                            HallCard controller = loader.getController();
-                            controller.setHall(hall);
+                            StudentCard controller = loader.getController();
+                            controller.setStudent(student);
                             contrainer.getChildren().add(root);
                         } catch (IOException e) {
                             throw new RuntimeException(e);
@@ -165,43 +191,17 @@ public class Halls implements Initializable {
 
     }
 
-    public void halls(ActionEvent actionEvent) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/halls.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void rooms(ActionEvent actionEvent) {
-    }
-
-    public void notices(ActionEvent actionEvent) {
-    }
-
-    public void complains(ActionEvent actionEvent) {
-    }
-
-    public void dashboad(ActionEvent actionEvent) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/admin.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Platform.runLater(()->{
             if(searchBox.getText().isEmpty()) {
-                for (HallModel hall:getHalls()) {
+                for (StudentModel student:getStudents()) {
                     try {
                         FXMLLoader loader = new FXMLLoader();
-                        loader.setLocation(getClass().getResource("/com/example/uiuhostelmanagement/HallCard.fxml"));
+                        loader.setLocation(getClass().getResource("/com/example/uiuhostelmanagement/studentCard.fxml"));
                         Parent root = loader.load();
-                        HallCard controller = loader.getController();
-                        controller.setHall(hall);
+                        StudentCard controller = loader.getController();
+                        controller.setStudent(student);
                         contrainer.getChildren().add(root);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
@@ -209,17 +209,15 @@ public class Halls implements Initializable {
                 }
             }
         });
-
     }
-
-    private ArrayList<HallModel> getHalls() {
-        ArrayList<HallModel> halls = new ArrayList<>();
-        String sql = "SELECT * FROM halls";
+    private ArrayList<StudentModel> getStudents() {
+        ArrayList<StudentModel> students = new ArrayList<>();
+        String sql = "SELECT * FROM students";
         try {
             DatabaseConnection databaseConnection = new DatabaseConnection();
             ResultSet resultSet = databaseConnection.queryData(sql);
             while (resultSet.next()) {
-                halls.add(new HallModel(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6),resultSet.getInt(7)));
+                students.add(new StudentModel(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7),resultSet.getString(8),resultSet.getString(9)));
             }
 
         } catch (SQLException e) {
@@ -227,8 +225,6 @@ public class Halls implements Initializable {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        return halls;
+        return students;
     }
-
-
 }

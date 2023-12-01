@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="891.0" spacing="10.0" style="-fx-border-color: #f38908;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.StudentCard">
+   <children>
+      <Label fx:id="id" alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" prefHeight="69.0" prefWidth="334.0" text="ID" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="name" alignment="CENTER" layoutX="535.0" layoutY="10.0" prefHeight="69.0" prefWidth="350.0" text="Name" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="email" alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" prefHeight="69.0" prefWidth="336.0" text="Email" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="mobile" alignment="CENTER" contentDisplay="TOP" layoutX="300.0" layoutY="10.0" prefHeight="69.0" prefWidth="304.0" text="Mobile" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="gender" alignment="CENTER" prefHeight="69.0" prefWidth="304.0" text="Gender" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="address" alignment="CENTER" layoutX="781.0" layoutY="11.0" prefHeight="69.0" prefWidth="348.0" text="Address" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="number" alignment="CENTER" contentDisplay="TOP" layoutX="537.0" layoutY="11.0" prefHeight="70.0" prefWidth="358.0" text="Number" textAlignment="CENTER" textFill="#6c7e8a" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>

@@ -19,7 +19,13 @@ public class Registration {
     private ToggleGroup acCondition;
 
     @FXML
+    private TextField address;
+
+    @FXML
     private TextField email;
+
+    @FXML
+    private TextField gNumber;
 
     @FXML
     private ToggleGroup gender;
@@ -56,7 +62,7 @@ public class Registration {
 
 
         DatabaseConnection databaseConnection = new DatabaseConnection();
-        String sql = "INSERT INTO students (id, name, email, mobile,gender,roomType,acOrNon) VALUES (?, ?, ?, ?,?,?,?)";
+        String sql = "INSERT INTO students (id, name, email, mobile,gender,roomType,acOrNon,address,gNumber) VALUES (?, ?, ?, ?,?,?,?,?,?)";
         Connection connection = databaseConnection.getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1,id.getText());
@@ -66,6 +72,8 @@ public class Registration {
         statement.setString(5,genderText);
         statement.setString(6,roomTypeText);
         statement.setString(7,acText);
+        statement.setString(8,address.getText());
+        statement.setString(9,gNumber.getText());
         int result = statement.executeUpdate();
         String password = generatePassword();
         SendEmail.sendMail(email.getText(),"UIU Hostel Account Credentials","Your Password : " + password);
