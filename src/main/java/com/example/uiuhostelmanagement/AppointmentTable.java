@@ -1,7 +1,6 @@
 package com.example.uiuhostelmanagement;
 
 import com.example.uiuhostelmanagement.model.AppointmentModel;
-import com.example.uiuhostelmanagement.model.HallModel;
 import com.example.uiuhostelmanagement.util.DatabaseConnection;
 import com.example.uiuhostelmanagement.util.DatabaseReadCall;
 import com.example.uiuhostelmanagement.util.FXMLScene;
@@ -79,7 +78,7 @@ public class AppointmentTable implements Initializable {
 
     @FXML
     void dashboad(ActionEvent event) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/admin.fxml");
+        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/adminDashboard.fxml");
         Scene scene = new Scene(fxmlScene.getRoot());
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -131,7 +130,7 @@ public class AppointmentTable implements Initializable {
         fadeTransition.setToValue(1);
         fadeTransition.play();
         ArrayList<AppointmentModel> appointments = new ArrayList<>();
-        String searchSQL = "SELECT a.studentID as studentID, a.studentName as studentName, a.gName,a.gRelation, h.hallName AS hallName,  r.roomID, a.message FROM appointments a JOIN rooms r ON a.studentID = r.bookedBy JOIN halls h ON r.hall_id = h.id WHERE studentID LIKE ? OR studentName LIKE ? OR hallName LIKE ?";
+        String searchSQL = "SELECT a.appointmentID, a.studentID as studentID, a.studentName as studentName, a.gName,a.gRelation, h.hallName AS hallName,  r.roomID, a.message FROM appointments a JOIN rooms r ON a.studentID = r.bookedBy JOIN halls h ON r.hall_id = h.id WHERE studentID LIKE ? OR studentName LIKE ? OR hallName LIKE ?";
         HashMap<Integer,Object> searchHash = new HashMap<>();
         searchHash.put(1,"%"+((TextField)event.getSource()).getText()+"%");
         searchHash.put(2,"%"+((TextField)event.getSource()).getText()+"%");
@@ -142,7 +141,7 @@ public class AppointmentTable implements Initializable {
                 ResultSet resultSet = databaseReadCall.getValue();
 
                 while (resultSet.next()) {
-                    appointments.add(new AppointmentModel(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7)));
+                    appointments.add(new AppointmentModel(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7),resultSet.getString(8)));
                 }
                 if (appointments.size() > 0) {
 
@@ -205,12 +204,12 @@ public class AppointmentTable implements Initializable {
 
     private ArrayList<AppointmentModel> getAppointments() {
         ArrayList<AppointmentModel> appointments = new ArrayList<>();
-        String sql = "SELECT a.studentID, a.studentName, a.gName,a.gRelation, h.hallName AS HallName,  r.roomID, a.message FROM appointments a JOIN rooms r ON a.studentID = r.bookedBy JOIN halls h ON r.hall_id = h.id;";
+        String sql = "SELECT a.appointmentID, a.studentID, a.studentName, a.gName,a.gRelation, h.hallName AS HallName,  r.roomID, a.message FROM appointments a JOIN rooms r ON a.studentID = r.bookedBy JOIN halls h ON r.hall_id = h.id;";
         try {
             DatabaseConnection databaseConnection = new DatabaseConnection();
             ResultSet resultSet = databaseConnection.queryData(sql);
             while (resultSet.next()) {
-                appointments.add(new AppointmentModel(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7)));
+                appointments.add(new AppointmentModel(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7),resultSet.getString(8)));
             }
 
         } catch (SQLException e) {

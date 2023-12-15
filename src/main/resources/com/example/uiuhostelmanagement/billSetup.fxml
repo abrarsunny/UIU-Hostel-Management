@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="612.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.BillSetup">
+    <children>
+        <StackPane alignment="CENTER_LEFT" layoutX="6.0" prefHeight="56.0" prefWidth="904.0" style="-fx-background-color: #1c1e24;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Bill Setup">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Text>
+            </children>
+            <padding>
+                <Insets left="38.0" right="38.0" />
+            </padding>
+        </StackPane>
+        <AnchorPane layoutX="-1.0" layoutY="104.0" prefHeight="540.0" prefWidth="900.0" style="-fx-background-color: #1c1e24;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <TextField fx:id="breakfast" layoutX="145.0" layoutY="24.0" prefHeight="38.0" prefWidth="263.0" promptText="Per Breakfast Cost" />
+                <Text fill="#fafafa" layoutX="31.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breakfast">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="dinner" layoutX="591.0" layoutY="24.0" prefHeight="38.0" prefWidth="263.0" promptText="Per Dinner Cost" />
+                <Text fill="#fafafa" layoutX="513.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dinner">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Text>
+                <Line endX="253.066650390625" endY="3.0517578125E-5" layoutX="122.0" layoutY="192.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
+                <Text fill="#fafafa" layoutX="398.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Single Room">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Text>
+                <Line endX="278.6666564941406" endY="3.0517578125E-5" layoutX="588.0" layoutY="192.0" startX="-40.13330078125" startY="3.0517578125E-5" stroke="WHITE" strokeWidth="3.0" />
+                <TextField fx:id="singleAC" layoutX="113.0" layoutY="232.0" prefHeight="38.0" prefWidth="217.0" promptText="AC Per Seat Bill" />
+                <Text fill="#fafafa" layoutX="68.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AC:">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="singleNonAC" layoutX="548.0" layoutY="231.0" prefHeight="38.0" prefWidth="217.0" promptText="Non-AC Per Seat Bill" />
+                <Text fill="#fafafa" layoutX="456.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Non-AC:">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Text>
+                <Line endX="253.066650390625" endY="3.0517578125E-5" layoutX="121.0" layoutY="352.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
+                <Text fill="#fafafa" layoutX="397.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shared Room">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Text>
+                <Line endX="278.6666564941406" endY="3.0517578125E-5" layoutX="587.0" layoutY="352.0" startX="-40.13330078125" startY="3.0517578125E-5" stroke="WHITE" strokeWidth="3.0" />
+                <TextField fx:id="sharedAC" layoutX="112.0" layoutY="392.0" prefHeight="38.0" prefWidth="217.0" promptText="AC Per Seat Bill" />
+                <Text fill="#fafafa" layoutX="67.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AC:">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="sharedNonAC" layoutX="547.0" layoutY="391.0" prefHeight="38.0" prefWidth="217.0" promptText="Non-AC Per Seat Bill" />
+                <Text fill="#fafafa" layoutX="455.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Non-AC:">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Text>
+                <Button layoutX="418.0" layoutY="460.0" mnemonicParsing="false" onAction="#submit" text="Submit">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="lunch" layoutX="145.0" layoutY="85.0" prefHeight="38.0" prefWidth="263.0" promptText="Per Lunch Cost" />
+                <Text fill="#fafafa" layoutX="55.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lunch">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Text>
+            <TextField fx:id="others" layoutX="588.0" layoutY="85.0" prefHeight="38.0" prefWidth="263.0" promptText="Other Bill" />
+            <Text fill="#fafafa" layoutX="509.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Others">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

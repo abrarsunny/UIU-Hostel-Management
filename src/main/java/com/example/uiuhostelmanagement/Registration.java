@@ -8,9 +8,16 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.*;
+import java.util.Optional;
 import java.util.UUID;
 
 public class Registration {
@@ -41,6 +48,9 @@ public class Registration {
 
     @FXML
     private ToggleGroup roomType;
+    @FXML
+    private ImageView imageview;
+    private File file;
     private String generatePassword()
     {
         UUID uuid = UUID.randomUUID();
@@ -58,11 +68,10 @@ public class Registration {
 
         RadioButton seletedAC = (RadioButton) acCondition.getSelectedToggle();
         String acText = seletedAC.getText();
-
-
+        FileInputStream fis = new FileInputStream(file);
 
         DatabaseConnection databaseConnection = new DatabaseConnection();
-        String sql = "INSERT INTO students (id, name, email, mobile,gender,roomType,acOrNon,address,gNumber) VALUES (?, ?, ?, ?,?,?,?,?,?)";
+        String sql = "INSERT INTO students (id, name, email, mobile,gender,roomType,acOrNon,address,gNumber,image) VALUES (?, ?, ?, ?,?,?,?,?,?,?)";
         Connection connection = databaseConnection.getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1,id.getText());
@@ -74,6 +83,8 @@ public class Registration {
         statement.setString(7,acText);
         statement.setString(8,address.getText());
         statement.setString(9,gNumber.getText());
+        statement.setBinaryStream(10, fis, (int) file.length());
+
         int result = statement.executeUpdate();
         String password = generatePassword();
         SendEmail.sendMail(email.getText(),"UIU Hostel Account Credentials","Your Password : " + password);
@@ -113,5 +124,25 @@ public class Registration {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void upload(MouseEvent mouseEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose your Picture");
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("JPEG", "*.jpg");
+        FileChooser.ExtensionFilter filter1 = new FileChooser.ExtensionFilter("PNG", "*.png");
+        fileChooser.getExtensionFilters().addAll(filter, filter1);
+        file = fileChooser.showOpenDialog(((Node) mouseEvent.getSource()).getScene().getWindow());
+
+        if (file != null) {
+            Image image = new Image(file.toURI().toString()); // Use toURI().toString()
+            imageview.setImage(image);
+            imageview.setPreserveRatio(true);
+
+        } else {
+            System.out.println("No file selected.");
+        }
+
     }
 }

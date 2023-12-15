@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-radius: 20; -fx-background-color: #ffff;" stylesheets="@../admin.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.StudentList">
+    <children>
+        <Circle fx:id="picture" fill="#1f93ff00" radius="42.0" stroke="BLACK" strokeType="INSIDE">
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </Circle>
+        <VBox alignment="TOP_CENTER" maxHeight="109.0" maxWidth="215.0" prefHeight="109.0" prefWidth="215.0" spacing="5.0">
+            <children>
+                <Label fx:id="name" maxWidth="-Infinity" text="Name" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Label>
+                <Label maxWidth="-Infinity" text="Email" textAlignment="CENTER" wrapText="true" />
+                <Label fx:id="designation" text="Mobile" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </VBox>
+        <StackPane prefHeight="57.0">
+            <children>
+                <Button contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" style="-fx-background-radius: 20; -fx-border-width: 0; -fx-background-color: #7accff37;" textAlignment="CENTER" wrapText="true">
+                    <graphic>
+                        <Label fx:id="specialities" text="DERMETOLOGY" textFill="#0097ff" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                    </graphic>
+                    <padding>
+                        <Insets bottom="6.0" left="16.0" right="16.0" top="6.0" />
+                    </padding>
+                </Button>
+            </children>
+        </StackPane>
+        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="215.0">
+            <children>
+                <Button layoutX="10.0" layoutY="10.0" onAction="#bookAppointment" prefHeight="42.0" prefWidth="223.0" style="-fx-background-radius: 0 0 20 20;" styleClass="btn2" text="Book Appointment" HBox.hgrow="ALWAYS" />
+            </children>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </HBox>
+    </children>
+    <effect>
+        <DropShadow radius="4.75" width="0.0">
+            <color>
+                <Color opacity="0.37370240688323975" />
+            </color>
+        </DropShadow>
+    </effect>
+</VBox>

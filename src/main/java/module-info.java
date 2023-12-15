@@ -3,6 +3,7 @@ module com.example.uiuhostelmanagement {
     requires javafx.fxml;
     requires java.sql;
     requires java.mail;
+    requires mysql.connector.j;
 
 
     opens com.example.uiuhostelmanagement to javafx.fxml;

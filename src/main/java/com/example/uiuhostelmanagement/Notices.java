@@ -1,6 +1,7 @@
 package com.example.uiuhostelmanagement;
 
 import com.example.uiuhostelmanagement.model.HallModel;
+import com.example.uiuhostelmanagement.model.Notice;
 import com.example.uiuhostelmanagement.util.DatabaseConnection;
 import com.example.uiuhostelmanagement.util.DatabaseReadCall;
 import com.example.uiuhostelmanagement.util.FXMLScene;
@@ -10,15 +11,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -29,33 +26,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
-public class Halls implements Initializable {
+public class Notices implements Initializable {
+
+    @FXML
+    private TextField searchBox;
+
+    @FXML
+    private VBox contrainer;
     public void setMainContainer(BorderPane mainContainer) {
         this.mainContainer = mainContainer;
     }
 
     private BorderPane mainContainer;
 
-
     @FXML
-    private VBox contrainer;
-
-
-    @FXML
-    private TextField searchBox;
-
-
-    @FXML
-    void addHall(ActionEvent event) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/addHall.fxml");
+    void addNotices(ActionEvent event) {
+        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/addNotice.fxml");
+        AddNotice notices = (AddNotice) fxmlScene.getController();
+        notices.setMainContainer(mainContainer);
         mainContainer.setCenter(fxmlScene.getRoot());
-//        Scene scene = new Scene(fxmlScene.getRoot());
-//        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//        stage.setScene(scene);
-//        stage.show();
-
     }
-
 
     @FXML
     void search(KeyEvent event) throws SQLException, ClassNotFoundException, IOException {
@@ -66,27 +56,28 @@ public class Halls implements Initializable {
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
-        ArrayList<HallModel> halls = new ArrayList<>();
-        String searchSQL = "select * from halls where hallName LIKE ?";
+        ArrayList<Notice> notices = new ArrayList<>();
+        String searchSQL = "select * from notices where subject LIKE ? OR message LIKE ?";
         HashMap<Integer,Object> searchHash = new HashMap<>();
         searchHash.put(1,"%"+((TextField)event.getSource()).getText()+"%");
+        searchHash.put(2,"%"+((TextField)event.getSource()).getText()+"%");
         DatabaseReadCall databaseReadCall = new DatabaseReadCall(searchSQL,searchHash);
         databaseReadCall.setOnSucceeded(workerStateEvent -> {
             try {
                 ResultSet resultSet = databaseReadCall.getValue();
 
                 while (resultSet.next()) {
-                    halls.add(new HallModel(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6),resultSet.getInt(7)));
+                    notices.add(new Notice(resultSet.getString(1),resultSet.getDate(2),resultSet.getString(3),resultSet.getString(4)));
                 }
-                if (halls.size() > 0) {
+                if (notices.size() > 0) {
 
-                    for (HallModel hall:halls) {
+                    for (Notice notice:notices) {
                         try {
                             FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(getClass().getResource("/com/example/uiuhostelmanagement/HallCard.fxml"));
+                            loader.setLocation(getClass().getResource("/com/example/uiuhostelmanagement/NoticeCard.fxml"));
                             Parent root = loader.load();
-                            HallCard controller = loader.getController();
-                            controller.setHall(hall);
+                            NoticeCard controller = loader.getController();
+                            controller.setNotice(notice);
                             contrainer.getChildren().add(root);
                         } catch (IOException e) {
                             throw new RuntimeException(e);
@@ -117,13 +108,13 @@ public class Halls implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Platform.runLater(()->{
             if(searchBox.getText().isEmpty()) {
-                for (HallModel hall:getHalls()) {
+                for (Notice notice:getNotices()) {
                     try {
                         FXMLLoader loader = new FXMLLoader();
-                        loader.setLocation(getClass().getResource("/com/example/uiuhostelmanagement/HallCard.fxml"));
+                        loader.setLocation(getClass().getResource("/com/example/uiuhostelmanagement/NoticeCard.fxml"));
                         Parent root = loader.load();
-                        HallCard controller = loader.getController();
-                        controller.setHall(hall);
+                        NoticeCard controller = loader.getController();
+                        controller.setNotice(notice);
                         contrainer.getChildren().add(root);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
@@ -134,23 +125,20 @@ public class Halls implements Initializable {
 
     }
 
-    private ArrayList<HallModel> getHalls() {
-        ArrayList<HallModel> halls = new ArrayList<>();
-        String sql = "SELECT * FROM halls";
+    private ArrayList<Notice> getNotices() {
+        ArrayList<Notice> notices = new ArrayList<>();
+        String sql = "SELECT * FROM notices";
         try {
             DatabaseConnection databaseConnection = new DatabaseConnection();
             ResultSet resultSet = databaseConnection.queryData(sql);
             while (resultSet.next()) {
-                halls.add(new HallModel(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6),resultSet.getInt(7)));
+                notices.add(new Notice(resultSet.getString(1),resultSet.getDate(2),resultSet.getString(3),resultSet.getString(4)));
             }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        return halls;
+        return notices;
     }
-
 
 }

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="612.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.AdminDashboard">
+   <children>
+      <AnchorPane layoutX="33.0" layoutY="48.0" prefHeight="237.0" prefWidth="834.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 1;">
+         <children>
+            <Text fill="#ff9008" layoutX="19.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Male Hall Details">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text fill="#ff9008" layoutX="453.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Female Hall Details">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Line endX="69.09564208984375" endY="-1.0671868324279785" layoutX="465.0" layoutY="122.0" rotate="90.0" startX="-147.6856231689453" startY="-2.3826427459716797" stroke="WHITE" strokeWidth="6.0" />
+            <Text fill="WHITE" layoutX="23.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Capacity(AC): ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="maleACTotal" fill="WHITE" layoutX="231.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="24.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Seats(AC): ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="maleACAvailable" fill="WHITE" layoutX="242.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="22.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Capacity(Non-AC): ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="maleNonACTotal" fill="WHITE" layoutX="286.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="23.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Seats(Non-AC): ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="maleNonACAvailable" fill="WHITE" layoutX="288.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="451.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Capacity(AC): ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="femaleACTotal" fill="WHITE" layoutX="659.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="452.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Seats(AC): ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="femaleACAvailable" fill="WHITE" layoutX="670.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="450.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Capacity(Non-AC): ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="femaleNonACTotal" fill="WHITE" layoutX="714.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="451.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Seats(Non-AC): ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="femaleNonACAvailable" fill="WHITE" layoutX="716.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="33.0" layoutY="333.0" prefHeight="238.0" prefWidth="834.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 2;">
+         <children>
+            <Text fill="#ff9008" layoutX="19.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today's Meal (Male Hostel)">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Text>
+            <Text fill="#ff9008" layoutX="450.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today's Meal (Female Hostel)">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Text>
+            <Line endX="69.09564208984375" endY="-1.0671868324279785" layoutX="465.0" layoutY="122.0" rotate="90.0" startX="-147.6856231689453" startY="-2.3826427459716797" stroke="WHITE" strokeWidth="6.0" />
+            <Text fill="WHITE" layoutX="23.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breakfast:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="129.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="24.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lunch: ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="104.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="22.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dinner: ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="107.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="23.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Meals:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="155.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="453.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breakfast:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="559.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="454.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lunch: ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="534.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="452.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dinner: ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="537.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="453.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Meals:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="585.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

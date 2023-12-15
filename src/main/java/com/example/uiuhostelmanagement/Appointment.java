@@ -19,6 +19,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
 public class Appointment implements Initializable {
 
@@ -52,25 +53,40 @@ public class Appointment implements Initializable {
     void submit(ActionEvent event) throws SQLException, ClassNotFoundException {
         if(!gName.getText().equals("") && !gRelation.getText().equals("") && !sId.getText().equals(""))
         {
-            String sql = "INSERT INTO appointments (studentID, studentName, gName, gRelation,message) VALUES (?, ?, ?, ?,?)";
+            String searchSQL = "SELECT * FROM `rooms` WHERE `bookedBy` = ?";
+
+            String sql = "INSERT INTO appointments (appointmentID,studentID, studentName, gName, gRelation,message) VALUES (?, ?, ?, ?, ?,?)";
             Connection connection = databaseConnection.getConnection();
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1,sId.getText());
-            statement.setString(2,sName.getText());
-            statement.setString(3,gName.getText());
-            statement.setString(4,gRelation.getText());
-            statement.setString(5,message.getText());
-            int result = statement.executeUpdate();
-            if(result==1)
+            PreparedStatement statement = connection.prepareStatement(searchSQL);
+            statement.setString(1,sId.getText());;
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next())
             {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION,"Appointment Submited", ButtonType.OK);
-                alert.show();
+                statement = connection.prepareStatement(sql);
+                statement.setString(1,generateID());
+                statement.setString(2,sId.getText());
+                statement.setString(3,sName.getText());
+                statement.setString(4,gName.getText());
+                statement.setString(5,gRelation.getText());
+                statement.setString(6,message.getText());
+                int result = statement.executeUpdate();
+                if(result==1)
+                {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION,"Appointment Submited", ButtonType.OK);
+                    alert.show();
+                }
+                else
+                {
+                    Alert alert = new Alert(Alert.AlertType.ERROR,"Something Wrong", ButtonType.OK);
+                    alert.show();
+                }
             }
             else
             {
-                Alert alert = new Alert(Alert.AlertType.ERROR,"Something Wrong", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.ERROR,"This student doesn't booked any room.", ButtonType.OK);
                 alert.show();
             }
+
         }
         else
         {
@@ -108,5 +124,10 @@ public class Appointment implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR,"Student Not Found", ButtonType.OK);
             alert.show();
         }
+    }
+    private String generateID()
+    {
+        UUID uuid = UUID.randomUUID();
+        return "Appointment_"+uuid.toString().substring(0, 4);
     }
 }

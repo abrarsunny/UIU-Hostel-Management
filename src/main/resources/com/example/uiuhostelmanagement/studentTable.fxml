@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -15,131 +13,79 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="rootPane" prefHeight="684.0" prefWidth="1097.0" stylesheets="@../admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.StudentTable">
-
-    <right>
-        <VBox prefHeight="539.0" prefWidth="156.0" BorderPane.alignment="CENTER">
-            <children>
-                <Button fx:id="registerStudentButton" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#registerStudentButtonAction" prefHeight="400.0" prefWidth="156.0" text="Student List">
-
-                </Button>
-                <Button fx:id="newNoticeButton" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#newNoticeButtonAction" prefHeight="400.0" prefWidth="156.0" text="New Notice">
-
-                </Button>
-                <Button fx:id="recieveBillButton" contentDisplay="TOP" layoutX="10.0" layoutY="266.0" mnemonicParsing="false" onAction="#recieveBillButtonAction" prefHeight="400.0" prefWidth="156.0" text="Prepare Bill">
-                    <graphic>
-
-                    </graphic>
-                </Button>
-                <Button fx:id="dailyMealBillsButton" contentDisplay="TOP" layoutX="10.0" layoutY="448.0" mnemonicParsing="false" onAction="#dailyMealBillsButtonAction" prefHeight="400.0" prefWidth="186.0" text="Appointment">
-                    <graphic>
-
-                    </graphic>
-                </Button>
-                <Button fx:id="billSetupButton" contentDisplay="TOP" layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#billSetupButtonAction" prefHeight="400.0" prefWidth="156.0" text="Bill Setup">
-                    <graphic>
-
-                    </graphic>
-                </Button>
-                <Button fx:id="settingsButton" contentDisplay="TOP" layoutX="10.0" layoutY="292.0" mnemonicParsing="false" onAction="#settingsButtonAction" prefHeight="400.0" prefWidth="156.0" text="Settings">
-                    <graphic>
-
-                    </graphic>
-                </Button>
-                <Button fx:id="logoutButton" contentDisplay="TOP" layoutX="10.0" layoutY="422.0" mnemonicParsing="false" onAction="#logoutButtonAction" prefHeight="400.0" prefWidth="156.0" text="Log Out">
-                    <graphic>
-
-                    </graphic>
-                </Button>
-            </children>
-        </VBox>
-    </right>
-    <center>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <children>
-                <ButtonBar layoutX="-11.2" layoutY="6.4" prefHeight="50.0" prefWidth="854.0" AnchorPane.bottomAnchor="628.0" AnchorPane.leftAnchor="-11.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="6.0">
-                    <buttons>
-                        <Button mnemonicParsing="false" onAction="#dashboad" prefHeight="8.0" prefWidth="328.0" text="Dashboad" />
-                        <Button mnemonicParsing="false" onAction="#halls" text="Halls" />
-                        <Button mnemonicParsing="false" onAction="#rooms" text="Rooms" />
-                        <Button mnemonicParsing="false" onAction="#notices" text="Notices" />
-                        <Button mnemonicParsing="false" onAction="#complains" text="Complains" />
-                    </buttons>
-                </ButtonBar>
-                <StackPane alignment="CENTER_LEFT" layoutX="11.0" layoutY="63.0" prefHeight="56.0" prefWidth="904.0" style="-fx-background-color: #1c1e24;">
-                    <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Student List">
-                            <font>
-                                <Font name="System Bold" size="22.0" />
-                            </font>
-                        </Text>
-                        <TextField fx:id="searchBox" onKeyTyped="#search" promptText="Search" StackPane.alignment="CENTER_RIGHT">
-                            <StackPane.margin>
-                                <Insets left="500.0" />
-                            </StackPane.margin>
-                        </TextField>
-                    </children>
-                    <padding>
-                        <Insets left="38.0" right="38.0" />
-                    </padding>
-                </StackPane>
-                <AnchorPane layoutX="5.0" layoutY="138.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="907.0" stylesheets="@../admin.css">
-                    <children>
-                        <BorderPane layoutX="75.0" layoutY="0.8" prefHeight="518.0" prefWidth="900.0" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="1.0">
-                            <top>
-                                <HBox prefHeight="51.0" prefWidth="744.0" spacing="10.0" style="-fx-background-color: #f38908;" BorderPane.alignment="CENTER">
-                                    <children>
-                                        <Separator orientation="VERTICAL" prefHeight="200.0" />
-                                        <Label alignment="CENTER" prefHeight="51.0" prefWidth="138.0" text="Student ID">
-                                            <font>
-                                                <Font name="System Bold" size="16.0" />
-                                            </font>
-                                        </Label>
-                                        <Label alignment="CENTER" layoutX="27.0" layoutY="10.0" prefHeight="51.0" prefWidth="182.0" text="Student Name">
-                                            <font>
-                                                <Font name="System Bold" size="16.0" />
-                                            </font>
-                                        </Label>
-                                        <Label alignment="CENTER" layoutX="16.0" layoutY="10.0" prefHeight="51.0" prefWidth="156.0" text="Email">
-                                            <font>
-                                                <Font name="System Bold" size="16.0" />
-                                            </font>
-                                        </Label>
-                                        <Label alignment="CENTER" layoutX="412.0" layoutY="10.0" prefHeight="51.0" prefWidth="127.0" text="Mobile">
-                                            <font>
-                                                <Font name="System Bold" size="16.0" />
-                                            </font>
-                                        </Label>
-                                        <Label alignment="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="51.0" prefWidth="127.0" text="Gender">
-                                            <font>
-                                                <Font name="System Bold" size="16.0" />
-                                            </font>
-                                        </Label>
-                                        <Label alignment="CENTER" layoutX="800.0" layoutY="10.0" prefHeight="51.0" prefWidth="178.0" text="Address">
-                                            <font>
-                                                <Font name="System Bold" size="16.0" />
-                                            </font>
-                                        </Label>
-                              <Label alignment="CENTER" layoutX="656.0" layoutY="10.0" prefHeight="51.0" prefWidth="218.0" text="Guardian Number">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                                    </children>
-                                </HBox>
-                            </top>
-                            <center>
-                                <ScrollPane prefHeight="474.0" prefWidth="887.0" BorderPane.alignment="CENTER">
-                                    <content>
-                                        <VBox fx:id="contrainer" />
-                                    </content>
-                                </ScrollPane>
-                            </center>
-                        </BorderPane>
-                    </children>
-                </AnchorPane>
-            </children>
-        </AnchorPane>
-    </center>
-
-</BorderPane>
+<AnchorPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.StudentTable">
+   <children>
+      <StackPane alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="914.0" style="-fx-background-color: #1c1e24;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Student List">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <TextField fx:id="searchBox" onKeyTyped="#search" promptText="Search" stylesheets="@../admin.css" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets left="500.0" />
+               </StackPane.margin>
+            </TextField>
+         </children>
+         <padding>
+            <Insets left="38.0" right="38.0" />
+         </padding>
+      </StackPane>
+      <AnchorPane layoutX="-2.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="914.0" stylesheets="@../admin.css">
+         <children>
+            <BorderPane layoutX="1.0" layoutY="-7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <HBox prefHeight="51.0" spacing="10.0" style="-fx-background-color: #f38908;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                        <Label alignment="CENTER" prefHeight="51.0" prefWidth="138.0" text="Student ID">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="27.0" layoutY="10.0" prefHeight="51.0" prefWidth="182.0" text="Student Name">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="10.0" prefHeight="51.0" prefWidth="156.0" text="Email">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="412.0" layoutY="10.0" prefHeight="51.0" prefWidth="127.0" text="Mobile">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="51.0" prefWidth="127.0" text="Gender">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="800.0" layoutY="10.0" prefHeight="51.0" prefWidth="178.0" text="Address">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="656.0" layoutY="10.0" prefHeight="51.0" prefWidth="218.0" text="Guardian Number">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </top>
+               <center>
+                  <ScrollPane prefWidth="900.0" BorderPane.alignment="CENTER">
+                     <content>
+                        <VBox fx:id="contrainer" />
+                     </content>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -40,6 +40,13 @@
     -fx-background-color: #ff9008;
     -fx-text-fill: white;
 }
+.deactiveBtn{
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-font-size: 9pt;
+    -fx-border-color: transparent ;
+
+}
 .text-field
 {
     -fx-text-fill: #fff;
@@ -65,12 +72,12 @@
     -fx-pref-height : 60;
 }
 
-.tab:hover 
+.tab:hover
 {
-    
+
     -fx-background-color: #104E8C;
 }
-.tab:selected 
+.tab:selected
 {
     -fx-background-color: #1976D2;
 }

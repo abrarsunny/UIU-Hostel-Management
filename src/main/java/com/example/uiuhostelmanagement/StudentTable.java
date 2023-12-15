@@ -1,6 +1,5 @@
 package com.example.uiuhostelmanagement;
 
-import com.example.uiuhostelmanagement.model.AppointmentModel;
 import com.example.uiuhostelmanagement.model.StudentModel;
 import com.example.uiuhostelmanagement.util.DatabaseConnection;
 import com.example.uiuhostelmanagement.util.DatabaseReadCall;
@@ -32,103 +31,15 @@ import java.util.ResourceBundle;
 
 public class StudentTable implements Initializable {
 
-    @FXML
-    private Button billSetupButton;
 
     @FXML
     private VBox contrainer;
 
     @FXML
-    private Button dailyMealBillsButton;
-
-    @FXML
-    private Button logoutButton;
-
-    @FXML
-    private Button newNoticeButton;
-
-    @FXML
-    private Button recieveBillButton;
-
-    @FXML
-    private Button registerStudentButton;
-
-    @FXML
-    private BorderPane rootPane;
-
-    @FXML
     private TextField searchBox;
 
-    @FXML
-    private Button settingsButton;
 
-    @FXML
-    void billSetupButtonAction(ActionEvent event) {
 
-    }
-
-    @FXML
-    void complains(ActionEvent event) {
-
-    }
-
-    @FXML
-    void dailyMealBillsButtonAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void dashboad(ActionEvent event) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/admin.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    @FXML
-    void halls(ActionEvent event) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/halls.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void logoutButtonAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void newNoticeButtonAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void notices(ActionEvent event) {
-
-    }
-
-    @FXML
-    void recieveBillButtonAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void registerStudentButtonAction(ActionEvent event) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/studentTable.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void rooms(ActionEvent event) {
-
-    }
 
     @FXML
     void search(KeyEvent event) {
@@ -186,10 +97,6 @@ public class StudentTable implements Initializable {
         thread.start();
     }
 
-    @FXML
-    void settingsButtonAction(ActionEvent event) {
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

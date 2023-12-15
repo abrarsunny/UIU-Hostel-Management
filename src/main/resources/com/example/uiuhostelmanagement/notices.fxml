@@ -14,16 +14,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane stylesheets="@../admin.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.Halls">
+<AnchorPane stylesheets="@../admin.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.Notices">
    <children>
       <StackPane alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="907.0" style="-fx-background-color: #1c1e24;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Hall List">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Notices">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Text>
-            <Button mnemonicParsing="false" onAction="#addHall" styleClass="activeBtn" text="Add Hall" StackPane.alignment="CENTER_RIGHT" />
+            <Button mnemonicParsing="false" onAction="#addNotices" styleClass="activeBtn" text="Add Notices" StackPane.alignment="CENTER_RIGHT" />
             <TextField fx:id="searchBox" onKeyTyped="#search" promptText="Search" StackPane.alignment="CENTER">
                <StackPane.margin>
                   <Insets left="100.0" right="400.0" />
@@ -41,37 +41,17 @@
                   <HBox prefHeight="51.0" prefWidth="744.0" spacing="10.0" style="-fx-background-color: #f38908;" BorderPane.alignment="CENTER">
                      <children>
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
-                        <Label alignment="CENTER" prefHeight="51.0" prefWidth="186.0" text="Name">
+                        <Label alignment="CENTER" prefHeight="51.0" prefWidth="186.0" text="Date">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="27.0" layoutY="10.0" prefHeight="51.0" prefWidth="163.0" text="Male Or Female">
+                        <Label alignment="CENTER" layoutX="412.0" layoutY="10.0" prefHeight="51.0" prefWidth="270.0" text="Subject">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="16.0" layoutY="10.0" prefHeight="51.0" prefWidth="111.0" text="Single AC">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="412.0" layoutY="10.0" prefHeight="51.0" prefWidth="161.0" text="Single Non-AC">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="51.0" prefWidth="127.0" text="Shared AC">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="819.0" layoutY="10.0" prefHeight="51.0" prefWidth="160.0" text="Shared Non-AC">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="800.0" layoutY="10.0" prefHeight="51.0" prefWidth="182.0">
+                        <Label alignment="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="51.0" prefWidth="439.0" text="Message">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>

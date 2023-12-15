@@ -1,77 +1,44 @@
 package com.example.uiuhostelmanagement;
 
 import com.example.uiuhostelmanagement.util.DatabaseConnection;
-import com.example.uiuhostelmanagement.util.FXMLScene;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class Admin_Dashboard implements Initializable {
+public class AdminDashboard implements Initializable {
+    private DatabaseConnection databaseConnection;
     @FXML
-    private Button billSetupButton;
-
-    @FXML
-    private Button dailyMealBillsButton;
-
-    @FXML
-    private Button logoutButton;
-
-    @FXML
-    private Button newNoticeButton;
-
-    @FXML
-    private Button recieveBillButton;
-
-    @FXML
-    private Button registerStudentButton;
-
-    @FXML
-    private BorderPane rootPane;
-
-    @FXML
-    private Button settingsButton;
-    @FXML
-    private Text femaleACAvailable;
-
-    @FXML
-    private Text femaleACTotal;
-
-    @FXML
-    private Text femaleNonACAvailable;
-
-    @FXML
-    private Text femaleNonACTotal;
-
+    private Text maleACTotal;
 
     @FXML
     private Text maleACAvailable;
 
     @FXML
-    private Text maleACTotal;
+    private Text maleNonACTotal;
 
     @FXML
     private Text maleNonACAvailable;
 
     @FXML
-    private Text maleNonACTotal;
+    private Text femaleACTotal;
 
-    DatabaseConnection databaseConnection;
+    @FXML
+    private Text femaleACAvailable;
+
+    @FXML
+    private Text femaleNonACTotal;
+
+    @FXML
+    private Text femaleNonACAvailable;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
+                try {
 
             databaseConnection = new DatabaseConnection();
 
@@ -113,75 +80,8 @@ public class Admin_Dashboard implements Initializable {
 
 
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @FXML
-    void billSetupButtonAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void appointmentButtonAction(ActionEvent event) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/appointmentTable.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void logoutButtonAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void newNoticeButtonAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void recieveBillButtonAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void studentList(ActionEvent event) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/studentTable.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void settingsButtonAction(ActionEvent event) {
-
-    }
-
-    public void halls(ActionEvent actionEvent) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/halls.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void rooms(ActionEvent actionEvent) {
-    }
-
-    public void notices(ActionEvent actionEvent) {
-    }
-
-    public void complains(ActionEvent actionEvent) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/complain/adminComplainBox.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
     }
 }

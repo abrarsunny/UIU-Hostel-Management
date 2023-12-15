@@ -1,6 +1,7 @@
 package com.example.uiuhostelmanagement.model;
 
 public class AppointmentModel {
+    private String appointmentID;
     private String studentID;
     private String studentName;
     private String gName;
@@ -8,6 +9,15 @@ public class AppointmentModel {
     private String hallName;
     private String roomID;
     private String message;
+
+
+    public String getAppointmentID() {
+        return appointmentID;
+    }
+
+    public void setAppointmentID(String appointmentID) {
+        this.appointmentID = appointmentID;
+    }
 
     public String getStudentID() {
         return studentID;
@@ -65,7 +75,8 @@ public class AppointmentModel {
         this.message = message;
     }
 
-    public AppointmentModel(String studentID, String studentName, String gName, String gRelation, String hallName, String roomID, String message) {
+    public AppointmentModel(String appointmentID, String studentID, String studentName, String gName, String gRelation, String hallName, String roomID, String message) {
+        this.appointmentID = appointmentID;
         this.studentID = studentID;
         this.studentName = studentName;
         this.gName = gName;

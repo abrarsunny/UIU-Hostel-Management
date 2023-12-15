@@ -56,7 +56,7 @@ public class  Login {
             {
                 if(resultSet.getString(4).equals("admin"))
                 {
-                    FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/admin.fxml");
+                    FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/adminFrame.fxml");
                     Scene scene = new Scene(fxmlScene.getRoot());
                     Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                     stage.setScene(scene);
