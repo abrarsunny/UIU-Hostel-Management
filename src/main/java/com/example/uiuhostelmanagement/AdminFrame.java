@@ -26,6 +26,14 @@ public class AdminFrame implements Initializable {
     private BorderPane mainContainer;
 
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
+
+
+
     @FXML
     void billSetupButtonAction(ActionEvent event) {
         FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/billSetup.fxml");
@@ -98,6 +106,7 @@ public class AdminFrame implements Initializable {
     @FXML
     void settingsButtonAction(ActionEvent event) {
         FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/setting.fxml");
+        ((Settings)fxmlScene.getController()).setEmail(email);
         mainContainer.setCenter(fxmlScene.getRoot());
     }
 

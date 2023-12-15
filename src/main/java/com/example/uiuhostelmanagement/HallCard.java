@@ -1,11 +1,13 @@
 package com.example.uiuhostelmanagement;
 
 import com.example.uiuhostelmanagement.model.HallModel;
+import com.example.uiuhostelmanagement.util.FXMLScene;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,9 +35,18 @@ public class HallCard implements Initializable {
     private HallModel hall;
     private String hallId;
 
+
+    public void setMainContainer(BorderPane mainContainer) {
+        this.mainContainer = mainContainer;
+    }
+
+    private BorderPane mainContainer;
+
     @FXML
     void edit(ActionEvent event) {
-
+        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/editHall.fxml");
+        ((EditHall)fxmlScene.getController()).setHallModel(hall);
+        mainContainer.setCenter(fxmlScene.getRoot());
     }
 
     @FXML

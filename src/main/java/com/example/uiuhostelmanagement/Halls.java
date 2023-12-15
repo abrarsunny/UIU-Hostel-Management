@@ -124,6 +124,7 @@ public class Halls implements Initializable {
                         Parent root = loader.load();
                         HallCard controller = loader.getController();
                         controller.setHall(hall);
+                        controller.setMainContainer(mainContainer);
                         contrainer.getChildren().add(root);
                     } catch (IOException e) {
                         throw new RuntimeException(e);

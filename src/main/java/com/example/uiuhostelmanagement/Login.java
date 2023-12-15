@@ -58,6 +58,7 @@ public class  Login {
                 {
                     FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/adminFrame.fxml");
                     Scene scene = new Scene(fxmlScene.getRoot());
+                    ((AdminFrame)fxmlScene.getController()).setEmail(emailText);
                     Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                     stage.setScene(scene);
                     stage.setTitle("Admin");
