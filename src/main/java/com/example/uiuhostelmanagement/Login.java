@@ -65,10 +65,10 @@ public class  Login {
                 else
                 {
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/com/example/uiuhostelmanagement/studentDashboad.fxml"));
+                    loader.setLocation(getClass().getResource("/com/example/uiuhostelmanagement/studentFrame.fxml"));
                     Parent root = loader.load();
-                    StudentDashboad controller = loader.getController();
-                    controller.setStudentEmail(emailText);
+                    StudentFrame controller = loader.getController();
+                    controller.setEmail(emailText);
                     Scene scene = new Scene(root);
                     Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                     stage.setScene(scene);

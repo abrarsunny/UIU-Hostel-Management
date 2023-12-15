@@ -113,10 +113,7 @@ public class AdminFrame implements Initializable {
 
     public void complains(ActionEvent actionEvent) {
         FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/complain/adminComplainBox.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        mainContainer.setCenter(fxmlScene.getRoot());
     }
 
 }

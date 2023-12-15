@@ -6,27 +6,27 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootPane" prefHeight="684.0" prefWidth="1024.0" stylesheets="@../admin.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.StudentDashboad">
+<BorderPane fx:id="rootPane" prefHeight="684.0" prefWidth="1097.0" stylesheets="@../admin.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.StudentFrame">
 
     <right>
         <VBox prefHeight="539.0" prefWidth="156.0" BorderPane.alignment="CENTER">
             <children>
-
-                <Button fx:id="addMealButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#addMealButtonAction" prefHeight="400.0" prefWidth="156.0" text="Add Meal">
-
-                </Button>
-
-                <Button fx:id="recieveBillButton" contentDisplay="TOP" layoutX="10.0" layoutY="266.0" mnemonicParsing="false" onAction="#billRecive" prefHeight="400.0" prefWidth="156.0" text="Recieve Bill">
-
-                </Button>
-                <Button fx:id="dailyMealBillsButton" contentDisplay="TOP" layoutX="10.0" layoutY="448.0" mnemonicParsing="false" onAction="#dailyMealBillsButtonAction" prefHeight="400.0" prefWidth="156.0" text="Meal Details">
+                <Button contentDisplay="TOP" layoutX="10.0" layoutY="448.0" mnemonicParsing="false" onAction="#addMeal" prefHeight="400.0" prefWidth="186.0" text="AddMeal">
                     <graphic>
 
                     </graphic>
                 </Button>
+                <Button contentDisplay="TOP" layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#recieveBills" prefHeight="400.0" prefWidth="156.0" text="Recieve Bills">
+                    <graphic>
 
+                    </graphic>
+                </Button>
+                <Button contentDisplay="TOP" layoutX="10.0" layoutY="292.0" mnemonicParsing="false" onAction="#mealDetails" prefHeight="400.0" prefWidth="156.0" text="Meal Details">
+                    <graphic>
 
-                <Button fx:id="logoutButton" contentDisplay="TOP" layoutX="10.0" layoutY="422.0" mnemonicParsing="false" onAction="#logoutButtonAction" prefHeight="400.0" prefWidth="156.0" text="Log Out">
+                    </graphic>
+                </Button>
+                <Button contentDisplay="TOP" layoutX="10.0" layoutY="422.0" mnemonicParsing="false" onAction="#logoutButtonAction" prefHeight="400.0" prefWidth="156.0" text="Log Out">
                     <graphic>
 
                     </graphic>
@@ -34,19 +34,19 @@
             </children>
         </VBox>
     </right>
-   <center>
-      <AnchorPane BorderPane.alignment="CENTER">
-         <children>
-            <ButtonBar prefHeight="50.0" prefWidth="854.0">
-               <buttons>
-                  <Button mnemonicParsing="false" onAction="#dashboad" prefHeight="8.0" prefWidth="328.0" text="Dashboad" />
-                  <Button mnemonicParsing="false" onAction="#notices" text="Notices" />
-                  <Button mnemonicParsing="false" onAction="#Complain" text="Complains" />
-               </buttons>
-            </ButtonBar>
-            <BorderPane layoutY="61.0" prefHeight="623.0" prefWidth="942.0" />
-         </children>
-      </AnchorPane>
-   </center>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ButtonBar layoutX="-11.2" layoutY="6.4" prefHeight="50.0" prefWidth="854.0" AnchorPane.bottomAnchor="628.0" AnchorPane.leftAnchor="-11.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="6.0">
+                    <buttons>
+                        <Button mnemonicParsing="false" onAction="#dashboard" prefHeight="8.0" prefWidth="328.0" text="Dashboad" />
+                        <Button mnemonicParsing="false" onAction="#notices" text="Notices" />
+                        <Button mnemonicParsing="false" onAction="#complains" text="Complains" />
+                    </buttons>
+                </ButtonBar>
+                <BorderPane fx:id="mainContainer" layoutX="13.0" layoutY="62.0" prefHeight="612.0" prefWidth="900.0" />
+            </children>
+        </AnchorPane>
+    </center>
 
 </BorderPane>

@@ -1,84 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="rootPane" prefHeight="684.0" prefWidth="1097.0" stylesheets="@../../admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.complain.ServerController">
-
-    <right>
-        <VBox prefHeight="539.0" prefWidth="156.0" BorderPane.alignment="CENTER">
-            <children>
-                <Button fx:id="registerStudentButton" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#registerStudentButtonAction" prefHeight="400.0" prefWidth="156.0" text="Student List">
-
-                </Button>
-                <Button fx:id="newNoticeButton" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#newNoticeButtonAction" prefHeight="400.0" prefWidth="156.0" text="New Notice">
-
-                </Button>
-                <Button fx:id="recieveBillButton" contentDisplay="TOP" layoutX="10.0" layoutY="266.0" mnemonicParsing="false" onAction="#recieveBillButtonAction" prefHeight="400.0" prefWidth="156.0" text="Prepare Bill">
-                    <graphic>
-
-                    </graphic>
-                </Button>
-                <Button fx:id="dailyMealBillsButton" contentDisplay="TOP" layoutX="10.0" layoutY="448.0" mnemonicParsing="false" onAction="#dailyMealBillsButtonAction" prefHeight="400.0" prefWidth="186.0" text="Appointment">
-                    <graphic>
-
-                    </graphic>
-                </Button>
-                <Button fx:id="billSetupButton" contentDisplay="TOP" layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#billSetupButtonAction" prefHeight="400.0" prefWidth="156.0" text="Bill Setup">
-                    <graphic>
-
-                    </graphic>
-                </Button>
-                <Button fx:id="settingsButton" contentDisplay="TOP" layoutX="10.0" layoutY="292.0" mnemonicParsing="false" onAction="#settingsButtonAction" prefHeight="400.0" prefWidth="156.0" text="Settings">
-                    <graphic>
-
-                    </graphic>
-                </Button>
-                <Button fx:id="logoutButton" contentDisplay="TOP" layoutX="10.0" layoutY="422.0" mnemonicParsing="false" onAction="#logoutButtonAction" prefHeight="400.0" prefWidth="156.0" text="Log Out">
-                    <graphic>
-
-                    </graphic>
-                </Button>
-            </children>
-        </VBox>
-    </right>
-    <center>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <children>
-                <ButtonBar layoutX="-11.2" layoutY="6.4" prefHeight="50.0" prefWidth="854.0" AnchorPane.bottomAnchor="628.0" AnchorPane.leftAnchor="-11.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="6.0">
-                    <buttons>
-                        <Button mnemonicParsing="false" prefHeight="8.0" prefWidth="328.0" text="Dashboad" />
-                        <Button mnemonicParsing="false" onAction="#halls" text="Halls" />
-                        <Button mnemonicParsing="false" onAction="#rooms" text="Rooms" />
-                        <Button mnemonicParsing="false" onAction="#notices" text="Notices" />
-                        <Button mnemonicParsing="false" onAction="#complains" styleClass="activeBtn" text="Complains" />
-                    </buttons>
-                </ButtonBar>
-            <AnchorPane fx:id="ap_main" layoutX="14.0" layoutY="66.0" prefHeight="606.0" prefWidth="902.0" AnchorPane.topAnchor="66.0">
-               <children>
-                  <Button fx:id="button_send" layoutX="821.0" layoutY="543.0" text="Send" AnchorPane.bottomAnchor="22.59999999999998" AnchorPane.rightAnchor="14.999999999999972" />
-                  <TextField fx:id="tf_message" layoutX="30" layoutY="338" prefHeight="38.0" prefWidth="774.0" promptText="Write Here" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="97.60000000000002" />
-                  <ScrollPane fx:id="sp_main" fitToWidth="true" layoutX="30" layoutY="70" prefHeight="458.0" prefWidth="774.0" AnchorPane.bottomAnchor="77.60000000000002" AnchorPane.rightAnchor="98.0" AnchorPane.topAnchor="70.0">
-                     <content>
-                        <VBox fx:id="vbox_messages" prefHeight="248" prefWidth="412" />
-                     </content>
-                  </ScrollPane>
-                  <Label layoutX="30.0" layoutY="42.0" text="Complain Box:" textFill="WHITE" AnchorPane.leftAnchor="30.0">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            </children>
-        </AnchorPane>
-    </center>
-
-</BorderPane>
+<AnchorPane prefHeight="603.0" prefWidth="916.0" stylesheets="@../../admin.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.complain.ServerController">
+   <children>
+      <AnchorPane fx:id="ap_main" layoutX="14.0" layoutY="66.0" prefHeight="606.0" prefWidth="902.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="button_send" layoutX="821.0" layoutY="543.0" text="Send" AnchorPane.bottomAnchor="22.59999999999998" AnchorPane.rightAnchor="14.999999999999972" />
+            <TextField fx:id="tf_message" layoutX="30" layoutY="338" prefHeight="38.0" prefWidth="774.0" promptText="Write Here" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="97.60000000000002" />
+            <ScrollPane fx:id="sp_main" fitToWidth="true" layoutX="30" layoutY="70" prefHeight="458.0" prefWidth="774.0" AnchorPane.bottomAnchor="77.60000000000002" AnchorPane.rightAnchor="98.0" AnchorPane.topAnchor="70.0">
+               <content>
+                  <VBox fx:id="vbox_messages" prefHeight="248" prefWidth="412" />
+               </content>
+            </ScrollPane>
+            <Label layoutX="30.0" layoutY="42.0" text="Complain Box:" textFill="WHITE" AnchorPane.leftAnchor="30.0">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

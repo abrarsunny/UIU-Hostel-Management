@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane stylesheets="@../admin.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.Notices">
+   <children>
+      <StackPane alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="907.0" style="-fx-background-color: #1c1e24;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Notices">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <TextField fx:id="searchBox" onKeyTyped="#search" promptText="Search" StackPane.alignment="CENTER">
+               <StackPane.margin>
+                  <Insets left="100.0" right="400.0" />
+               </StackPane.margin>
+            </TextField>
+         </children>
+         <padding>
+            <Insets left="38.0" right="38.0" />
+         </padding>
+      </StackPane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="907.0" stylesheets="@../admin.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+         <children>
+            <BorderPane layoutX="1.0" layoutY="0.8" prefHeight="550.0" prefWidth="907.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="1.0">
+               <top>
+                  <HBox prefHeight="51.0" prefWidth="744.0" spacing="10.0" style="-fx-background-color: #f38908;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                        <Label alignment="CENTER" prefHeight="51.0" prefWidth="186.0" text="Date">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="412.0" layoutY="10.0" prefHeight="51.0" prefWidth="270.0" text="Subject">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="51.0" prefWidth="439.0" text="Message">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </top>
+               <center>
+                  <ScrollPane prefHeight="474.0" prefWidth="887.0" BorderPane.alignment="CENTER">
+                     <content>
+                        <VBox fx:id="contrainer" />
+                     </content>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

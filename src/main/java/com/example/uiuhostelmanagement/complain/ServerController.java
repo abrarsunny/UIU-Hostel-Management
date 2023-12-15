@@ -29,8 +29,6 @@ public class ServerController implements Initializable {
     @FXML
     private AnchorPane ap_main;
 
-    @FXML
-    private Button billSetupButton;
 
     @FXML
     private Button button_send;

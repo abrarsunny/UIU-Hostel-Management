@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="462.0" prefWidth="509.0" stylesheets="@../admin.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uiuhostelmanagement.AddMeal">
+    <children>
+        <StackPane alignment="CENTER_LEFT" layoutX="6.0" prefHeight="56.0" prefWidth="659.0" style="-fx-background-color: #1c1e24;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Today's Meal">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Text>
+            </children>
+            <padding>
+                <Insets left="38.0" right="38.0" />
+            </padding>
+        </StackPane>
+        <AnchorPane layoutY="67.0" prefHeight="406.0" prefWidth="509.0" style="-fx-background-color: #1c1e24;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Button layoutX="209.0" layoutY="288.0" mnemonicParsing="false" onAction="#submit" text="Submit">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Text fill="WHITE" layoutX="95.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breakfast">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Text>
+                <RadioButton layoutX="192.0" layoutY="64.0" mnemonicParsing="false" text="On" textFill="#fcf7f7">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="breakfast" />
+               </toggleGroup>
+                </RadioButton>
+                <RadioButton layoutX="294.0" layoutY="64.0" mnemonicParsing="false" text="Off" textFill="#ece7e7" toggleGroup="$breakfast">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </RadioButton>
+            <Text fill="WHITE" layoutX="126.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lunch">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <RadioButton layoutX="192.0" layoutY="123.0" mnemonicParsing="false" text="On" textFill="#fcf7f7">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="lunch" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="294.0" layoutY="123.0" mnemonicParsing="false" text="Off" textFill="#ece7e7" toggleGroup="$lunch">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </RadioButton>
+            <Text fill="WHITE" layoutX="122.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dinner">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <RadioButton layoutX="192.0" layoutY="184.0" mnemonicParsing="false" text="On" textFill="#fcf7f7">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="dinner" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="294.0" layoutY="184.0" mnemonicParsing="false" text="Off" textFill="#ece7e7" toggleGroup="$dinner">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </RadioButton>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
