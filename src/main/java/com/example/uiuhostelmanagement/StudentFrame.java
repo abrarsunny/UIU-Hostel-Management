@@ -63,9 +63,9 @@ public class StudentFrame implements Initializable {
 
     @FXML
     void dashboard(ActionEvent event) {
-//        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/studentDashboad.fxml");
-//        ((MealTable)fxmlScene.getController()).setStudentID(studentModel.getId());
-//        mainContainer.setCenter(fxmlScene.getRoot());
+        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/studentDashboad.fxml");
+        ((StudentDashboad)fxmlScene.getController()).setStudent(studentModel);
+        mainContainer.setCenter(fxmlScene.getRoot());
     }
 
     @FXML
@@ -93,6 +93,25 @@ public class StudentFrame implements Initializable {
         mainContainer.setCenter(fxmlScene.getRoot());
     }
 
+    private void loadAdminContent() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/uiuhostelmanagement/studentDashboad.fxml"));
+            Parent adminContent = loader.load();
+
+            // Get the controller associated with the loaded FXML
+            StudentDashboad controller = loader.getController();
+            controller.setStudent(studentModel);
+
+            // Set the content to the mainContainer
+            mainContainer.setCenter(adminContent);
+
+            // Pass any necessary data to the AdminContentController if needed
+            //adminContentController.initializeData(); // Example method to pass data
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Platform.runLater(() -> {
@@ -109,6 +128,7 @@ public class StudentFrame implements Initializable {
                     Alert alert = new Alert(Alert.AlertType.ERROR,"Student Not found", ButtonType.OK);
                     alert.show();
                 }
+                loadAdminContent();
 
 
 
