@@ -71,10 +71,13 @@ public class AdminFrame implements Initializable {
     }
 
     @FXML
-    void logoutButtonAction(ActionEvent event) {
-        FXMLScene fxmlScene = FXMLScene.load("/com/example/uiuhostelmanagement/login.fxml");
-        Scene scene = new Scene(fxmlScene.getRoot());
+    void logoutButtonAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/example/uiuhostelmanagement/login.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
     }

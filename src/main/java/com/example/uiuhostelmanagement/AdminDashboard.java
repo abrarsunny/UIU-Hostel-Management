@@ -11,6 +11,9 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdminDashboard implements Initializable {
+    public Text breakfast;
+    public Text lunch;
+    public Text dinner;
     private DatabaseConnection databaseConnection;
     @FXML
     private Text maleACTotal;
@@ -46,9 +49,11 @@ public class AdminDashboard implements Initializable {
             ResultSet resultSet = databaseConnection.queryData(sql);
             String sql2 = "SELECT 'male' as gender,SUM(CASE WHEN acOrNon = 'AC' AND roomType = 'Single Room' THEN 1 ELSE 0 END) as bookedACSingleRooms, SUM(CASE WHEN acOrNon = 'Non-AC' AND roomType = 'Single Room' THEN 1 ELSE 0 END) as bookedNonACSingleRooms, SUM(CASE WHEN acOrNon = 'AC' AND roomType = 'Shared Room' THEN 1 ELSE 0 END) as bookedACSharedRooms, SUM(CASE WHEN acOrNon = 'Non-AC' AND roomType = 'Shared Room' THEN 1 ELSE 0 END) as bookedNonACSharedRooms FROM (SELECT * FROM rooms INNER JOIN halls ON rooms.hall_id = halls.id AND halls.maleOrFemale = 'male') as rooms WHERE bookedBy IS NOT NULL UNION SELECT 'female' as gender, SUM(CASE WHEN acOrNon = 'AC' AND roomType = 'Single Room' THEN 1 ELSE 0 END) as bookedACSingleRooms, SUM(CASE WHEN acOrNon = 'Non-AC' AND roomType = 'Single Room' THEN 1 ELSE 0 END) as bookedNonACSingleRooms, SUM(CASE WHEN acOrNon = 'AC' AND roomType = 'Shared Room' THEN 1 ELSE 0 END) as bookedACSharedRooms, SUM(CASE WHEN acOrNon = 'Non-AC' AND roomType = 'Shared Room' THEN 1 ELSE 0 END) as bookedNonACSharedRooms\n" +
                     "FROM (SELECT * FROM rooms INNER JOIN halls ON rooms.hall_id = halls.id AND halls.maleOrFemale = 'female') as rooms WHERE bookedBy IS NOT NULL;";
+            String sql3 = "SELECT SUM(breakfast) as total_breakfast, SUM(lunch) as total_lunch, SUM(dinner) as total_dinner FROM meals WHERE date = CURRENT_DATE()";
             ResultSet resultSet2 = databaseConnection.queryData(sql2);
+            ResultSet resultSet3 = databaseConnection.queryData(sql3);
 
-            while(resultSet.next() && resultSet2.next())
+            while(resultSet.next() && resultSet2.next() && resultSet3.next())
             {
                 if(resultSet.getString(1).equals("male")) {
 
@@ -61,6 +66,9 @@ public class AdminDashboard implements Initializable {
                     maleNonACTotal.setText(String.valueOf(totalNonACRoom));
                     maleACAvailable.setText(String.valueOf(totalACRoom-totalACRoomBooked));
                     maleNonACAvailable.setText(String.valueOf(totalNonACRoom-totalNonACRoomBooked));
+                    breakfast.setText(String.valueOf(resultSet3.getInt(1)));
+                    lunch.setText(String.valueOf(resultSet3.getInt(2)));
+                    dinner.setText(String.valueOf(resultSet3.getInt(3)));
                 }
                 {
 

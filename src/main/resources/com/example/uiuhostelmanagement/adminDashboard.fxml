@@ -160,7 +160,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="559.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+            <Text fx:id="breakfast" fill="WHITE" layoutX="559.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
                <font>
                   <Font size="24.0" />
                </font>
@@ -170,7 +170,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="534.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+            <Text fx:id="lunch" fill="WHITE" layoutX="534.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
                <font>
                   <Font size="24.0" />
                </font>
@@ -180,17 +180,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="537.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="453.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Meals:">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="585.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+            <Text fx:id="dinner" fill="WHITE" layoutX="537.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
                <font>
                   <Font size="24.0" />
                </font>

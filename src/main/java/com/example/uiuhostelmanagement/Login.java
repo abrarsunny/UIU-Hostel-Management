@@ -60,6 +60,7 @@ public class  Login {
                     Scene scene = new Scene(fxmlScene.getRoot());
                     Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                     stage.setScene(scene);
+                    stage.setTitle("Admin");
                     stage.show();
                 }
                 else
@@ -71,6 +72,7 @@ public class  Login {
                     controller.setEmail(emailText);
                     Scene scene = new Scene(root);
                     Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                    stage.setTitle("Student");
                     stage.setScene(scene);
                     stage.show();
                 }
